@@ -1,0 +1,26 @@
+body {
+  background-color: #333;
+}
+
+#main {
+  padding: 40px 4px;
+}
+
+.norm {
+  padding: 2px;
+  border-radius: 4px;
+  border: solid 2px #777;
+  margin: 7px;
+  position: relative;
+  pointer-events: fill;
+  z-index: 10;
+  background-color: antiquewhite;
+}
+
+.active {
+  border: solid 4px #72f;
+}
+
+.inactive {
+  border: solid 2px #777;
+}
