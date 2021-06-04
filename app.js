@@ -38,10 +38,15 @@ class Blob {
   blobClick(e) {
     this.makeactiveblob();
   }
+  // removeblob(){}
 }
 
 document.querySelector("#adder").onclick = (e) => {
-  active.add(new Blob(e));
+  active.add(new Blob(e.pageX));
+};
+
+document.querySelector("#adderX").onclick = (e) => {
+  active.add(new Blob("X"));
 };
 
 document.querySelector("#rmver").onclick = (e) => {
