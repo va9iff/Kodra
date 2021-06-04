@@ -18,25 +18,30 @@ class Blob {
     this.text = text;
     this.widget = el("div");
     this.widget.classList.add("norm");
+    this.inside = [];
     this.widget.onclick = (e) => {
       this.blobClick();
       e.stopPropagation(); //prevents the parent div's click fire
     };
     this.widget.innerHTML = text;
   }
-  blobClick(e) {
-    // alert(this.text);
+  add(addingblob) {
+    this.inside.push(addingblob);
+    this.widget.appendChild(addingblob.widget);
+    active.widget.style.zIndex = active.widget.style.zIndex + 1;
+  }
+  makeactiveblob() {
     active.widget.classList.remove("active");
     active = this;
     this.widget.classList.add("active");
   }
+  blobClick(e) {
+    this.makeactiveblob();
+  }
 }
 
-// el("button").innerHTML = "ijfasodiodfj";
 document.querySelector("#adder").onclick = (e) => {
-  let novablob = new Blob(e);
-  active.widget.style.zIndex = active.widget.style.zIndex + 1;
-  active.widget.appendChild(novablob.widget);
+  active.add(new Blob(e));
 };
 
 document.querySelector("#rmver").onclick = (e) => {
