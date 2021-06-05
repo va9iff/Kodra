@@ -16,6 +16,7 @@ var active = null;
 class Blob {
   constructor(text) {
     this.text = text;
+    this.par = null;
     this.widget = el("div");
     this.widget.classList.add("norm");
     this.inside = [];
@@ -25,10 +26,15 @@ class Blob {
     };
     this.widget.innerHTML = text;
   }
-  add(addingblob) {
+  addblob(addingblob) {
+    addingblob.par = this;
     this.inside.push(addingblob);
     this.widget.appendChild(addingblob.widget);
     active.widget.style.zIndex = active.widget.style.zIndex + 1;
+  }
+  rmvthisblob() {
+    active.par.inside.splice(active.par.inside.indexOf(this), 1);
+    this.widget.remove();
   }
   makeactiveblob() {
     active.widget.classList.remove("active");
@@ -42,15 +48,15 @@ class Blob {
 }
 
 document.querySelector("#adder").onclick = (e) => {
-  active.add(new Blob(e.pageX));
+  active.addblob(new Blob("Then" + e.pageX));
 };
 
 document.querySelector("#adderX").onclick = (e) => {
-  active.add(new Blob("X"));
+  active.addblob(new Blob("If"));
 };
 
 document.querySelector("#rmver").onclick = (e) => {
-  active.widget.remove();
+  active.rmvthisblob();
 };
 active = new Blob("a");
 new Blob("v");
