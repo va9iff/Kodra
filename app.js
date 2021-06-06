@@ -46,6 +46,10 @@ class Blob {
   }
   // removeblob(){}
 }
+///////////////
+class MainBlob extends Blob {
+  rmvthisblob() {}
+}
 
 document.querySelector("#adder").onclick = (e) => {
   active.addblob(new Blob("Then" + e.pageX));
@@ -58,6 +62,5 @@ document.querySelector("#adderX").onclick = (e) => {
 document.querySelector("#rmver").onclick = (e) => {
   active.rmvthisblob();
 };
-active = new Blob("a");
-new Blob("v");
-new Blob("c");
+active = new MainBlob("main");
+active.makeactiveblob();
