@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  padding: 0;
+  padding: 10;
   box-sizing: border-box;
 }
 
@@ -51,14 +51,14 @@ body {
   padding: 12vh 4px;
   margin: 0;
   color: #fff;
-  grid-area: main;
+  /* grid-area: main; */
 }
-#adder {
-  grid-area: adder;
-}
-#rmver {
-  grid-area: rmver;
-}
+/* #adder { */
+/* grid-area: adder; */
+/* } */
+/* #rmver { */
+/* grid-area: rmver; */
+/* } */
 #toolbox {
   background: linear-gradient(-30deg, #debdeb77, #debdeb22);
   border: solid #debdebde 1px;
@@ -68,7 +68,7 @@ body {
   box-sizing: border-box;
   width: 22.5%;
   margin: 0 1.25%;
-  grid-area: toolbox;
+  /* grid-area: toolbox; */
   display: flex;
   flex-wrap: wrap;
   /* margin: auto; */
@@ -76,13 +76,13 @@ body {
   /* overflow-y: scroll; */
   overflow: scroll;
 }
-#maingrid {
-  grid-auto-columns: 1fr 3fr;
-  display: grid;
-  box-sizing: border-box;
-  /* grid-template: 4 8; */
-  grid-template-areas: "toolbox main";
-}
+/* #maingrid { */
+/* grid-auto-columns: 1fr 3fr; */
+/* display: grid; */
+/* box-sizing: border-box; */
+/* grid-template: 4 8; */
+/* grid-template-areas: "toolbox main"; */
+/* } */
 
 .norm {
   text-align: center;
@@ -122,17 +122,17 @@ body {
   #headerBar {
     font-size: 2.3rem;
   }
-  #maingrid {
-    grid-template-areas: "main" "toolbox";
-    padding: 0;
-  }
+  /* #maingrid { */
+  /* grid-template-areas: "main" "toolbox"; */
+  /* padding: 0; */
+  /* } */
 
   #toolbox {
     /* position: fixed; */
     width: 100%;
     margin: 0px;
     bottom: 0;
-    max-height: 50vh;
+    max-height: 35vh;
     overflow: scroll;
     /* background-color: #debdeb77; */
     box-sizing: border-box;
@@ -148,6 +148,10 @@ body {
     position: fixed;
     height: 7vh;
     font-size: 7vh;
+  }
+
+  #main {
+    margin-left: 25vw;
   }
 
   #toolbox {
