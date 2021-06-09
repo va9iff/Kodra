@@ -48,6 +48,7 @@ body {
   /* background-color: #a52a2a; */
 }
 #main {
+  display: flexbox;
   padding: 12vh 4px;
   margin: 0;
   color: #fff;
@@ -84,7 +85,14 @@ body {
 /* grid-template-areas: "toolbox main"; */
 /* } */
 
+.blobName {
+  display: block;
+}
+
+/* display: inline-block; */
 .norm {
+  flex-direction: column;
+  /* max-width: 100%; */
   text-align: center;
   box-sizing: border-box;
   transition: 200ms;

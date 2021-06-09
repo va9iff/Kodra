@@ -36,7 +36,9 @@ class Blob {
       this.blobClick();
       e.stopPropagation(); //prevents the parent div's click fire
     };
-    this.widget.innerHTML = text;
+    let blobName = el("p", "blobName");
+    blobName.innerHTML = text;
+    this.widget.appendChild(blobName);
   }
 
   resolve() {
@@ -91,6 +93,18 @@ class MainBlob extends EmptyBlob {
   }
   rmvthisblob() {} //block to remove this blob
 }
+class CollectorBlob extends EmptyBlob {
+  constructor(text) {
+    super(text);
+  }
+  addblob(addingblob) {
+    addingblob.par = this;
+    addingblob.widget.style.display = "inline-block";
+    this.inside.push(addingblob);
+    this.widget.appendChild(addingblob.widget);
+    active.widget.style.zIndex = active.widget.style.zIndex + 1;
+  }
+}
 // ///////////////
 class Num extends Blob {
   constructor() {
@@ -111,6 +125,10 @@ document.querySelector("#adder").onclick = (e) => {
 
 document.querySelector("#adderX").onclick = (e) => {
   active.addblob(new EmptyBlob("If"));
+};
+
+document.querySelector("#CollectorBlob").onclick = (e) => {
+  active.addblob(new CollectorBlob("CollectorBlob"));
 };
 
 document.querySelector("#rmver").onclick = (e) => {
