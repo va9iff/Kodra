@@ -1,12 +1,9 @@
 main = document.querySelector("#main");
 
-el = (elementtype = "div", elementclass = null, adding = main) => {
+el = (elementtype = "div", elementclass = null) => {
   let element = document.createElement(elementtype);
   if (elementclass != null) {
     element.classList.add(elementclass);
-  }
-  if (adding != null) {
-    adding.appendChild(element);
   }
   return element;
 };
@@ -22,6 +19,15 @@ class Blob {
     this.x = 0;
     this.neste = 0;
     //
+    // this.uiSide(text);
+  }
+  // addWidget(widType, widClass, addingTo) {}
+
+  uiSide(text) {
+    this.Primeui(text);
+  }
+
+  Primeui(text) {
     this.text = text;
     this.widget = el("div");
     this.widget.classList.add("norm");
@@ -32,6 +38,7 @@ class Blob {
     };
     this.widget.innerHTML = text;
   }
+
   resolve() {
     alert(this.text);
     //
@@ -69,23 +76,41 @@ class Blob {
   blobClick(e) {
     this.makeactiveblob();
   }
-  // removeblob(){}
 }
 ///////////////
-class MainBlob extends Blob {
-  rmvthisblob() {}
+class EmptyBlob extends Blob {
+  constructor(text) {
+    super(); //Blob is core class. it has no ui feature
+    this.uiSide(text);
+  }
+}
+///////////////
+class MainBlob extends EmptyBlob {
+  constructor(text) {
+    super(text); //EmptyBlob is a named (with text) blob
+  }
+  rmvthisblob() {} //block to remove this blob
 }
 // ///////////////
-// class Num extends Blob {
-//   rmvthisblob() {}
-// }
+class Num extends Blob {
+  constructor() {
+    super();
+    this.Primeui();
+    this.uiSide();
+  }
+  uiSide() {
+    let elelel = el("input");
+    elelel.innerHTML = 8234894712890;
+    this.widget.appendChild(elelel);
+  }
+}
 
 document.querySelector("#adder").onclick = (e) => {
-  active.addblob(new Blob("Then" + e.pageX));
+  active.addblob(new EmptyBlob("Then" + e.pageX));
 };
 
 document.querySelector("#adderX").onclick = (e) => {
-  active.addblob(new Blob("If"));
+  active.addblob(new EmptyBlob("If"));
 };
 
 document.querySelector("#rmver").onclick = (e) => {
@@ -96,6 +121,11 @@ document.querySelector("#run").onclick = (e) => {
   TheMainBlob.resolve();
 };
 
+document.querySelector("#btnNumBlob").onclick = (e) => {
+  active.addblob(new Num("Then" + e.pageX));
+};
+
 TheMainBlob = new MainBlob("main");
 active = TheMainBlob;
 active.makeactiveblob();
+main.appendChild(active.widget);
