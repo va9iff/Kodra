@@ -11,7 +11,7 @@ el = (elementtype = "div", elementclass = null) => {
 var active = null;
 
 class Blob {
-  constructor(text) {
+  constructor() {
     this.par = null;
     this.resval = null;
     this.inside = [];
@@ -25,27 +25,36 @@ class Blob {
 
   uiSide(text) {
     this.Primeui(text);
+    this.PrimeListener();
   }
-
-  Primeui(text) {
-    this.text = text;
-    this.widget = el("div");
-    this.widget.classList.add("norm");
-    //
+  PrimeListener() {
     this.widget.onclick = (e) => {
       this.blobClick();
       e.stopPropagation(); //prevents the parent div's click fire
     };
+  }
+
+  PrimeWidget() {
+    this.widget = el("div");
+    this.widget.classList.add("norm");
+  }
+  Primeui(text) {
+    this.PrimeWidget();
+    this.PrimeListener();
+    this.text = text;
     let blobName = el("p", "blobName");
     blobName.innerHTML = text;
     this.widget.appendChild(blobName);
   }
 
   resolve() {
-    alert(this.text);
+    // alert(this.text);
     //
     this.innerResolve();
     return this;
+  }
+  prev() {
+    return this.scope[this.scope.indexOf(this) - 1];
   }
   innerResolve() {
     let _resolved_inner = null;
@@ -65,7 +74,13 @@ class Blob {
     this.widget.appendChild(addingblob.widget);
     active.widget.style.zIndex = active.widget.style.zIndex + 1;
   }
-
+  additswidget(its) {
+    this.widget.appendChild(its.widget);
+  }
+  addwidget(its) {
+    this.additswidget(its);
+    return this;
+  }
   rmvthisblob() {
     active.par.inside.splice(active.par.inside.indexOf(this), 1);
     this.widget.remove();
@@ -100,12 +115,14 @@ class CollectorBlob extends EmptyBlob {
   addblob(addingblob) {
     addingblob.par = this;
     addingblob.widget.style.display = "inline-block";
+    addingblob.widget.style.minWidth = "0";
+
     this.inside.push(addingblob);
     this.widget.appendChild(addingblob.widget);
     active.widget.style.zIndex = active.widget.style.zIndex + 1;
   }
 }
-// ///////////////
+///////////////
 class Num extends Blob {
   constructor() {
     super();
@@ -119,6 +136,42 @@ class Num extends Blob {
   }
 }
 
+///////////////
+class innerBlobText {
+  constructor(text) {
+    this.widget = el("p");
+    this.widget.innerHTML = text;
+  }
+  update(text) {
+    this.widget.innerHTML = text;
+  }
+}
+///////////////
+class LogBlob extends Blob {
+  constructor(text) {
+    super();
+    this.uiSide(text);
+  }
+  uiSide(text) {
+    this.Primeui(text);
+    this.logtext = new innerBlobText("prrr");
+    this.additswidget(this.logtext);
+  }
+  resolve() {
+    this.logtext.update(this.prev().text);
+  }
+}
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 document.querySelector("#adder").onclick = (e) => {
   active.addblob(new EmptyBlob("Then" + e.pageX));
 };
@@ -141,6 +194,9 @@ document.querySelector("#run").onclick = (e) => {
 
 document.querySelector("#btnNumBlob").onclick = (e) => {
   active.addblob(new Num("Then" + e.pageX));
+};
+document.querySelector("#Log").onclick = (e) => {
+  active.addblob(new LogBlob("Log"));
 };
 
 TheMainBlob = new MainBlob("main");
