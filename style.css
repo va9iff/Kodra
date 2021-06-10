@@ -30,23 +30,54 @@ body {
 /* } */
 
 #headerBar {
-  color: #fff;
+  box-shadow: 0 10px 10px #debdeb44;
+  color: #ddd;
   font-family: "Josefin Sans", sans-serif;
   /* font-weight: 600; */
   /* text-align: center; */
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   font-size: 568.5%;
   /* padding: 40px; */
   /* background: linear-gradient(-170deg, #debdeb77, #a52a2a22); */
   width: 100%;
   /* color: #adebadeb; */
-  background-color: #483d4daa;
+  background-color: #342f36de;
   padding: 2px;
+  padding-left: 40px;
   /* border-radius: 0 0 44px 44px; */
+  transition: 700ms;
 
   /* background-color: #a52a2a; */
 }
+a {
+  text-decoration: none;
+  color: hsl(256, 100%, 78%);
+  /* margin-left: auto; */
+}
+#headerBar p {
+  transition: 200ms;
+  border-radius: 15%;
+}
+#headerBar p:hover {
+  transition: 700ms;
+  color: hsl(283, 10%, 100%);
+  background-color: #fff2;
+  /* background: linear-gradient(140deg, #fff2, #fff3); */
+}
+#headerBarLeftend {
+  background-color: hsla(140, 18%, 32%, 0.3);
+  display: flex;
+  padding: 4px;
+  margin-left: auto;
+  /* align-items: center; */
+  /* justify-items: center; */
+}
+
+#headerBarLeftend button {
+  margin: 4px;
+}
+
 #main {
   display: flexbox;
   padding: 12vh 4px;
@@ -154,7 +185,7 @@ body {
 @media only screen and (min-width: 600px) {
   #headerBar {
     position: fixed;
-    height: 7vh;
+    height: 8vh;
     font-size: 7vh;
   }
 
