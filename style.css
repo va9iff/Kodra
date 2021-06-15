@@ -1,3 +1,8 @@
+:root {
+  --bg: 32, 32, 32; /*r g bs*/
+  /* accent: ; */
+}
+
 * {
   margin: 0;
   padding: 10;
@@ -5,7 +10,7 @@
 }
 
 body {
-  background-color: #222;
+  background-color: rgba(var(--bg), 1);
 }
 
 .btnblob {

@@ -77,6 +77,10 @@ class Blob {
   additswidget(its) {
     this.widget.appendChild(its.widget);
   }
+  awid(its) {
+    this.widget.appendChild(its.widget);
+    return its;
+  }
   addwidget(its) {
     this.additswidget(its);
     return this;
@@ -130,9 +134,11 @@ class Num extends Blob {
     this.uiSide();
   }
   uiSide() {
-    let elelel = el("input");
-    elelel.innerHTML = 8234894712890;
-    this.widget.appendChild(elelel);
+    this.val = this.awid(new innerBlobNumField(9));
+  }
+  resolve() {
+    this.resval = this.val.get();
+    alert(this.resval);
   }
 }
 
@@ -142,8 +148,25 @@ class innerBlobText {
     this.widget = el("p");
     this.widget.innerHTML = text;
   }
-  update(text) {
+  set(text) {
     this.widget.innerHTML = text;
+  }
+  get() {
+    return this.widget.innerHTML;
+  }
+}
+///////////////
+class innerBlobNumField {
+  constructor(text) {
+    this.widget = el("input");
+    this.widget.type = "number";
+    this.widget.value = text;
+  }
+  set(text) {
+    this.widget.value = text;
+  }
+  get() {
+    return this.widget.value;
   }
 }
 ///////////////
@@ -158,7 +181,7 @@ class LogBlob extends Blob {
     this.additswidget(this.logtext);
   }
   resolve() {
-    this.logtext.update(this.prev().text);
+    this.logtext.set(this.prev().text);
   }
 }
 
