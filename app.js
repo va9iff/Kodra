@@ -1,4 +1,5 @@
 main = document.querySelector("#main");
+var active = null;
 
 el = (elementtype = "div", elementclass = null) => {
   let element = document.createElement(elementtype);
@@ -8,8 +9,6 @@ el = (elementtype = "div", elementclass = null) => {
   return element;
 };
 
-var active = null;
-
 class Blob {
   constructor() {
     this.par = null;
@@ -18,11 +17,9 @@ class Blob {
     this.scope = [];
     this.x = 0;
     this.neste = 0;
-    //
     // this.uiSide(text);
   }
   // addWidget(widType, widClass, addingTo) {}
-
   uiSide(text) {
     this.Primeui(text);
     this.PrimeListener();
@@ -33,7 +30,6 @@ class Blob {
       e.stopPropagation(); //prevents the parent div's click fire
     };
   }
-
   PrimeWidget() {
     this.widget = el("div");
     this.widget.classList.add("norm");
@@ -46,15 +42,15 @@ class Blob {
     blobName.innerHTML = text;
     this.widget.appendChild(blobName);
   }
-
   resolve() {
-    // alert(this.text);
-    //
     this.innerResolve();
     return this;
   }
   prev() {
     return this.scope[this.scope.indexOf(this) - 1];
+  }
+  next() {
+    return this.scope[this.scope.indexOf(this) + 1];
   }
   innerResolve() {
     let _resolved_inner = null;
@@ -130,10 +126,11 @@ class CollectorBlob extends EmptyBlob {
 class Num extends Blob {
   constructor() {
     super();
-    this.Primeui();
     this.uiSide();
   }
   uiSide() {
+    this.PrimeWidget();
+    this.PrimeListener();
     this.val = this.awid(new innerBlobNumField(9));
   }
   resolve() {
