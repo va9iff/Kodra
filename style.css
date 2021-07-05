@@ -22,12 +22,14 @@ body {
   padding: 0.4rem;
   margin: 1px;
   border-radius: 30px;
-  border: solid 4px #74f;
-  background-color: rgb(224, 212, 255);
+  border: solid 4px hsl(255, 770%, 77%);
+  background-color: rgb(238, 238, 238);
   color: whi;
 }
 
 #headerBar {
+  z-index: 99999;
+  position: relative;
   box-shadow: 0 10px 10px #0004;
   font-family: "Josefin Sans", sans-serif;
   /* font-weight: 600; */
@@ -69,7 +71,10 @@ a {
 }
 
 #main {
-  display: flexbox;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 12vh 4px;
   margin: 0;
   color: #fff;
@@ -125,7 +130,7 @@ a {
   /* padding: 6px; */
   padding: 6px 6px 100px 6px;
 
-  margin: 12px;
+  margin: 7px 7px;
   /* border-radius: 13px; */
 }
 

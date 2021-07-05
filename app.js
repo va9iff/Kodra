@@ -12,11 +12,7 @@ var active = null;
 //
 //
 document.querySelector("#adder").onclick = (e) => {
-  active.addblob(new EmptyBlob("Then" + e.pageX));
-};
-
-document.querySelector("#adderX").onclick = (e) => {
-  active.addblob(new EmptyBlob("If"));
+  active.addblob(new Add());
 };
 
 document.querySelector("#CollectorBlob").onclick = (e) => {

@@ -21,6 +21,6 @@ class innerBlobNumField {
     this.widget.value = text;
   }
   get() {
-    return this.widget.value;
+    return parseInt(this.widget.value);
   }
 }

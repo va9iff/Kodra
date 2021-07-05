@@ -6,16 +6,19 @@ class Blob {
     this.scope = [];
     this.x = 0;
     this.neste = 0;
+    this.name = "blob";
     // this.uiSide(text);
   }
   // just a blob with name
   uiSide(text) {
-    this.Primeui(text);
+    this.generalUI(text);
   }
-  // just a blob
-  PrimeUi() {
-    this.PrimeWidget();
+  generalUI(name) {
+    this.widget = el("div", "norm");
     this.PrimeListener();
+    this.name = name;
+    this.blobName = new innerBlobText(name);
+    this.addwid(this.blobName);
   }
   PrimeListener() {
     this.widget.onclick = (e) => {
@@ -27,12 +30,8 @@ class Blob {
     this.widget = el("div", "norm");
   }
   Primeui(name) {
-    this.PrimeWidget();
-    this.PrimeListener();
-    this.name = name;
-    let blobName = el("p", "blobName");
-    blobName.innerHTML = name;
-    this.widget.appendChild(blobName);
+    // this function is for generelasing of most basic (which is name with blob) ui side
+    this.generalUI(name);
   }
   resolve() {
     this.innerResolve();

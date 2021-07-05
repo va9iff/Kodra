@@ -1,0 +1,13 @@
+Blob
+attrs:
+    par -  parent blob
+    inside - inside of blob. as list. contains all the inner blobs (1st nested childs. others are in theirs inside)
+    scope -  parent's inside. just a quick way to refer this.par.inside.
+    ~ val -  contemporary value for resolve.
+    resval -  the main value. this value changes after resolve and all the blobs are related with this value.
+    neste -  how many parents the blob has.
+    x -  place in the parent's inside (scope). 1st, 2nd... as 1,2
+    name -  name, which is shown the first text in blob.
+    blobName -  the element holds the text of name
+
+    

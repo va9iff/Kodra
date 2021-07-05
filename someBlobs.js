@@ -1,20 +1,22 @@
 class EmptyBlob extends Blob {
   constructor(name) {
     super(); //Blob is core class. it has no ui feature
-    this.uiSide(name);
+    this.uiSide(name); //but empty blob calls uiSide func
   }
 }
 
 class MainBlob extends EmptyBlob {
-  constructor(name) {
-    super(name); //EmptyBlob is a named (with text) blob
+  constructor() {
+    super("Main"); //EmptyBlob is a named (with name) blob
   }
-  rmvthisblob() {} //block to remove this blob
+  rmvthisblob() {
+    null;
+  } //block to remove this blob
 }
 
 class CollectorBlob extends EmptyBlob {
-  constructor(name) {
-    super(name);
+  constructor() {
+    super("Collector");
   }
   addblob(addingblob) {
     this.widget.classList.add("collectorBlobClass");
@@ -26,28 +28,40 @@ class CollectorBlob extends EmptyBlob {
 }
 
 class Num extends EmptyBlob {
-  //   constructor() {
-  //     super();
-  //     this.uiSide();
-  //   }
+  Primeui() {
+    this.generalUI("Number"); //the given parameter turns its name
+  }
   uiSide() {
     this.Primeui();
-    this.val = this.addwid(new innerBlobNumField(9));
+    this.val = this.addwid(new innerBlobNumField(0));
   }
   resolve() {
     this.resval = this.val.get();
-    alert(this.resval);
+    return this;
+  }
+}
+
+class Add extends Num {
+  Primeui() {
+    this.generalUI("Add");
+  }
+  resolve() {
+    this.resval = this.prev().resval + this.val.get();
     return this;
   }
 }
 
 class LogBlob extends EmptyBlob {
   uiSide(name) {
-    this.Primeui(name);
+    this.generalUI(name);
     this.logtext = new innerBlobText("prrr");
+    this.logtext2 = new innerBlobText("prrr");
     this.addwid(this.logtext);
+    this.addwid(this.logtext2);
   }
   resolve() {
     this.logtext.set(this.prev().name);
+    this.logtext2.set(`res val is ${this.prev().resval}`);
+    // alert(this.prev().resval);
   }
 }
