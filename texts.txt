@@ -1,4 +1,4 @@
-Blob
+blob
 attrs:
     par -  parent blob
     inside - inside of blob. as list. contains all the inner blobs (1st nested childs. others are in theirs inside)
