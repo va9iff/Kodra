@@ -9,3 +9,8 @@ function el(el_type, el_class_name) {
 export { el };
 
 
+function remove(array, element) {
+  return array.filter((el) => el !== element);
+}
+
+export {remove}

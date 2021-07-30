@@ -1,9 +1,7 @@
 import { el } from "./generals.js";
 import { text_plugin } from "./plugins/text_plugin.js";
+import {remove } from "./generals.js"
 
-function remove(array, element) {
-  return array.filter((el) => el !== element);
-}
 
 
 class blob {
@@ -11,19 +9,16 @@ class blob {
   par = null;
   inside = [];
   pos = 0;
-  active = null
+  static active = null;
 
-  constructor(t='blob') {
+  constructor() {
     this.widget = el("button", "blob");
     this.widget.onclick = this.click;
-    this.widget.innerHTML=t
+    this.widget.innerHTML = this.name;
   }
 
   click = (e) => {
-    // alert(this.constructor.name);
-    // alert(this.name);
-    // alert(this.widget.innerHTML);
-    this.activate()
+    this.activate();
     e.stopPropagation(); //prevents the parent div's click fire
   };
 
@@ -38,15 +33,20 @@ class blob {
     remove(this.par.inside, this);
   }
 
-  activate(){
-    this.constructor.active.widget.classList.remove('active')
-    this.constructor.active = this
-    this.constructor.active.widget.classList.add('active')
+  activate() {
+    blob.active.widget.classList.remove("active");
+    blob.active = this;
+    blob.active.widget.classList.add("active");
   }
 
-  setActive(){
-    this.constructor.active = this
-    this.widget.classList.add('active')
+  A() {
+    //shourcut to get the active blob. not so useful tho
+    return blob.active;
+  }
+
+  setActive() {
+    blob.active = this;
+    this.widget.classList.add("active");
   }
 }
 

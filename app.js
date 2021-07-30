@@ -1,6 +1,5 @@
 import { blob } from "./blob.js";
-import { el } from "./generals.js";
-import { text_plugin } from "./plugins/text_plugin.js";
+import { number_blob } from "./blobs/number_blob.js";
 
 var main = document.querySelector('#main')
 
@@ -18,3 +17,4 @@ zero.widget.appendChild(anoda.widget)
 zero.setActive()
 
 document.querySelector('#add_blob').onclick = () => zero.constructor.active.add(new blob())
+document.querySelector('#add_number').onclick = () => zero.constructor.active.add(new number_blob())

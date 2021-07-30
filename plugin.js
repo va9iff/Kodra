@@ -7,6 +7,7 @@ class plugin{
 	}
 	add_to(adding_to){
 		adding_to.widget.appendChild(this.widget)
+		return this
 	}
 }
 
