@@ -10,11 +10,25 @@ class blob {
   inside = [];
   pos = 0;
   static active = null;
+  resval = 0
 
   constructor() {
     this.widget = el("button", "blob");
     this.widget.onclick = this.click;
     this.widget.innerHTML = this.name;
+  }
+
+  resolve(){
+    console.log(this.widget.innerHTML)
+    this.resval = this.innerResolve()
+    return this
+  }
+
+  innerResolve(){
+    this.inside.forEach( (innerBlob,   pos) => {
+        this.resval = innerBlob.resolve()
+    });
+    return this
   }
 
   click = (e) => {
@@ -42,6 +56,10 @@ class blob {
   A() {
     //shourcut to get the active blob. not so useful tho
     return blob.active;
+  }
+
+  clear(){
+    this.widget.innerHTML = ""
   }
 
   setActive() {
