@@ -14,12 +14,11 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import { plugin } from "./../plugin.js";
-import { el } from "./../generals.js";
 var number_plugin = /** @class */ (function (_super) {
     __extends(number_plugin, _super);
     function number_plugin(number) {
         var _this = _super.call(this) || this;
-        _this.widget = el("input");
+        _this.widget = document.createElement("input");
         _this.widget.type = "number";
         _this.widget.value = number;
         return _this;

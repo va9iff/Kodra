@@ -8,6 +8,8 @@ class blob {
   inside = [];
   pos = 0;
   static active = null;
+
+  val: any = 0;
   resval: any = 0;
 
   widget: HTMLElement;

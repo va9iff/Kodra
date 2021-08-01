@@ -7,6 +7,7 @@ var blob = /** @class */ (function () {
         this.par = null;
         this.inside = [];
         this.pos = 0;
+        this.val = 0;
         this.resval = 0;
         this.click = function (e) {
             _this.activate();

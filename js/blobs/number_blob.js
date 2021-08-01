@@ -19,13 +19,12 @@ var number_blob = /** @class */ (function (_super) {
     __extends(number_blob, _super);
     function number_blob() {
         var _this = _super.call(this) || this;
-        _this.name = 'number_blob';
+        _this.name = "number_blob";
         _this.clear();
-        _this.val = new number_plugin().add_to(_this);
+        _this.val = new number_plugin(9).add_to(_this);
         return _this;
     }
-    number_blob.prototype.add = function () {
-    };
+    number_blob.prototype.add = function () { };
     return number_blob;
 }(blob));
 export { number_blob };
