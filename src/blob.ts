@@ -1,8 +1,6 @@
 import { el } from "./generals.js";
 import { text_plugin } from "./plugins/text_plugin.js";
-import {remove } from "./generals.js"
-
-
+import { remove } from "./generals.js";
 
 class blob {
   name = "blob";
@@ -10,7 +8,9 @@ class blob {
   inside = [];
   pos = 0;
   static active = null;
-  resval = 0
+  resval: any = 0;
+
+  widget: HTMLElement;
 
   constructor() {
     this.widget = el("button", "blob");
@@ -18,17 +18,17 @@ class blob {
     this.widget.innerHTML = this.name;
   }
 
-  resolve(){
-    console.log(this.widget.innerHTML)
-    this.resval = this.innerResolve()
-    return this
+  resolve() {
+    console.log(this.widget.innerHTML);
+    this.resval = this.innerResolve();
+    return this;
   }
 
-  innerResolve(){
-    this.inside.forEach( (innerBlob,   pos) => {
-        this.resval = innerBlob.resolve()
+  innerResolve() {
+    this.inside.forEach((innerBlob, pos) => {
+      this.resval = innerBlob.resolve();
     });
-    return this
+    return this;
   }
 
   click = (e) => {
@@ -58,8 +58,8 @@ class blob {
     return blob.active;
   }
 
-  clear(){
-    this.widget.innerHTML = ""
+  clear() {
+    this.widget.innerHTML = "";
   }
 
   setActive() {
