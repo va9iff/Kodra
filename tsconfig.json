@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es5", //defines what sort of code ts generates, es5 because it's what most browsers currently UNDERSTANDS.
+    // "module": "commonjs",
+    "sourceMap": true,
+    "removeComments": false,
+    "noImplicitAny": false,
+    "lib": ["es2016", "dom", "es5"],
+
+    "module": "ES6",
+    "outDir": "./js"
+  },
+  "include": ["*", "src"]
+  // "exclude": ["node_modules", "**/*.spec.ts"]
+}
