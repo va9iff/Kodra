@@ -1,9 +1,10 @@
 import { blob } from "./blob.js";
 import { number_blob } from "./blobs/number_blob.js";
+import { unremovable_blob } from "./blobs/unremovable_blob.js";
 
 var main = document.querySelector("#main");
 
-let zero = new blob();
+let zero = new unremovable_blob();
 
 let anoda = new blob();
 
@@ -16,3 +17,4 @@ zero.setActive();
 document.querySelector("#add_blob").addEventListener("click", () => blob.active.add(new blob()));
 document.querySelector("#add_number").addEventListener("click", () => blob.active.add(new number_blob()));
 document.querySelector("#run").addEventListener("click", () => zero.resolve());
+document.querySelector("#remove").addEventListener("click", () => blob.active.remove());

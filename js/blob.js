@@ -1,5 +1,4 @@
 import { el } from "./generals.js";
-import { remove } from "./generals.js";
 var blob = /** @class */ (function () {
     function blob() {
         var _this = this;
@@ -37,7 +36,8 @@ var blob = /** @class */ (function () {
     };
     blob.prototype.remove = function (removing) {
         this.widget.remove();
-        remove(this.par.inside, this);
+        // remove(this.par.inside, this);
+        blob.active.par.inside.splice(blob.active.par.inside.indexOf(this), 1);
     };
     blob.prototype.activate = function () {
         blob.active.widget.classList.remove("active");

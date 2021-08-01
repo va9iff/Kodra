@@ -47,7 +47,8 @@ class blob {
 
   remove(removing) {
     this.widget.remove();
-    remove(this.par.inside, this);
+    // remove(this.par.inside, this);
+    blob.active.par.inside.splice(blob.active.par.inside.indexOf(this), 1);
   }
 
   activate() {
