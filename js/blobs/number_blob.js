@@ -25,6 +25,11 @@ var number_blob = /** @class */ (function (_super) {
         return _this;
     }
     number_blob.prototype.add = function () { };
+    number_blob.prototype.resolve = function () {
+        this.resval = this.val.get();
+        console.log(this.resval);
+        return this.resval;
+    };
     return number_blob;
 }(blob));
 export { number_blob };

@@ -21,16 +21,17 @@ class blob {
   }
 
   resolve() {
-    console.log(this.widget.innerHTML);
+    // console.log(this.widget.innerHTML);
     this.resval = this.innerResolve();
-    return this;
+    console.log(this.resval);
+    return this.resval;
   }
 
   innerResolve() {
     this.inside.forEach((innerBlob, pos) => {
       this.resval = innerBlob.resolve();
     });
-    return this;
+    return this.resval;
   }
 
   click = (e) => {

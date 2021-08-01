@@ -18,16 +18,17 @@ var blob = /** @class */ (function () {
         this.widget.innerHTML = this.name;
     }
     blob.prototype.resolve = function () {
-        console.log(this.widget.innerHTML);
+        // console.log(this.widget.innerHTML);
         this.resval = this.innerResolve();
-        return this;
+        console.log(this.resval);
+        return this.resval;
     };
     blob.prototype.innerResolve = function () {
         var _this = this;
         this.inside.forEach(function (innerBlob, pos) {
             _this.resval = innerBlob.resolve();
         });
-        return this;
+        return this.resval;
     };
     blob.prototype.add = function (adding) {
         this.widget.appendChild(adding.widget);

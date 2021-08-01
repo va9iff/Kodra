@@ -10,6 +10,11 @@ class number_blob extends blob {
     this.val = new number_plugin(9).add_to(this);
   }
   add() {}
+  resolve() {
+    this.resval = this.val.get();
+    console.log(this.resval);
+    return this.resval;
+  }
 }
 
 export { number_blob };
