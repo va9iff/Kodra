@@ -37,6 +37,13 @@ class blob {
     return this.resval;
   }
 
+  next() {
+    return this.par.inside[blob.active.par.inside.indexOf(this) + 1];
+  }
+  prev() {
+    return this.par.inside[blob.active.par.inside.indexOf(this) - 1];
+  }
+
   click = (e) => {
     // gets bound to its widget's click (is added as listener on click)
     this.activate();

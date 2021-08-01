@@ -32,6 +32,12 @@ var blob = /** @class */ (function () {
         });
         return this.resval;
     };
+    blob.prototype.next = function () {
+        return this.par.inside[blob.active.par.inside.indexOf(this) + 1];
+    };
+    blob.prototype.prev = function () {
+        return this.par.inside[blob.active.par.inside.indexOf(this) - 1];
+    };
     blob.prototype.add = function (adding) {
         // adds a blob to 'this'
         this.widget.appendChild(adding.widget);
