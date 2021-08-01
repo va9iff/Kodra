@@ -13,25 +13,16 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-// import { blob } from "./../blob.js";
-import { inline_blob } from "./../blobs/inline_blob.js";
-import { number_plugin } from "./../plugins/number_plugin.js";
-var number_blob = /** @class */ (function (_super) {
-    __extends(number_blob, _super);
-    function number_blob() {
+import { plugin } from "./../plugin.js";
+var inline_text_plugin = /** @class */ (function (_super) {
+    __extends(inline_text_plugin, _super);
+    function inline_text_plugin(text) {
         var _this = _super.call(this) || this;
-        _this.name = "number_blob";
-        _this.clear();
-        _this.val = new number_plugin(9).add_to(_this);
+        _this.widget.style.display = "inline";
+        _this.widget.innerHTML = text;
         return _this;
     }
-    number_blob.prototype.add = function () { };
-    number_blob.prototype.resolve = function () {
-        this.resval = this.val.get();
-        console.log(this.resval);
-        return this.resval;
-    };
-    return number_blob;
-}(inline_blob));
-export { number_blob };
-//# sourceMappingURL=number_blob.js.map
+    return inline_text_plugin;
+}(plugin));
+export { inline_text_plugin };
+//# sourceMappingURL=inline_text_plugin.js.map

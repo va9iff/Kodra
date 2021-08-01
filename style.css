@@ -1,28 +1,32 @@
-*{
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.blob{
-	padding: 1rem;
-	border: 0.2rem solid black;
-	display: block;
-	padding: 10px;
-	margin: 10px;
+.blob {
+  padding: 1rem;
+  border: 0.2rem solid black;
+  display: block;
+  padding: 10px;
+  margin: 10px;
 }
 
-#buts{
-	background-color: coral
+#buts {
+  background-color: coral;
 }
 
-#wrapper{
-	display: flex;
-	flex-direction: row;
-	width: 100vw;
-	height: 100vh
+#wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
 }
 
-.active{
-	border-color: cyan
+.active {
+  border-color: cyan;
+}
+
+input {
+  width: 3rem;
 }

@@ -13,25 +13,16 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-// import { blob } from "./../blob.js";
-import { inline_blob } from "./../blobs/inline_blob.js";
-import { number_plugin } from "./../plugins/number_plugin.js";
-var number_blob = /** @class */ (function (_super) {
-    __extends(number_blob, _super);
-    function number_blob() {
+import { blob } from "./../blob.js";
+var inline_blob = /** @class */ (function (_super) {
+    __extends(inline_blob, _super);
+    function inline_blob() {
         var _this = _super.call(this) || this;
-        _this.name = "number_blob";
-        _this.clear();
-        _this.val = new number_plugin(9).add_to(_this);
+        _this.name = "inline_blob";
+        _this.widget.style.display = "inline";
         return _this;
     }
-    number_blob.prototype.add = function () { };
-    number_blob.prototype.resolve = function () {
-        this.resval = this.val.get();
-        console.log(this.resval);
-        return this.resval;
-    };
-    return number_blob;
-}(inline_blob));
-export { number_blob };
-//# sourceMappingURL=number_blob.js.map
+    return inline_blob;
+}(blob));
+export { inline_blob };
+//# sourceMappingURL=inline_blob.js.map

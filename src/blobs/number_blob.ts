@@ -1,8 +1,9 @@
-import { blob } from "./../blob.js";
+// import { blob } from "./../blob.js";
+import { inline_blob } from "./../blobs/inline_blob.js";
 import { el } from "./../generals.js";
 import { number_plugin } from "./../plugins/number_plugin.js";
 
-class number_blob extends blob {
+class number_blob extends inline_blob {
   name = "number_blob";
   constructor() {
     super();
